@@ -2,7 +2,7 @@
   "name": "users-control-service",
   "version": "1.0.0",
   "description": "Remosi Users Control API",
-  "main": "service.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mostafavi/users-control-service/issues"
   },
-  "homepage": "https://github.com/mostafavi/users-control-service#readme"
+  "homepage": "https://github.com/mostafavi/users-control-service#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
