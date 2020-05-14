@@ -1,0 +1,19 @@
+{
+  "name": "users-control-service",
+  "version": "1.0.0",
+  "description": "Remosi Users Control API",
+  "main": "service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mostafavi/users-control-service.git"
+  },
+  "author": "Remosi Technology",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mostafavi/users-control-service/issues"
+  },
+  "homepage": "https://github.com/mostafavi/users-control-service#readme"
+}
