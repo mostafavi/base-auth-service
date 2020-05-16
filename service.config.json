@@ -1,0 +1,23 @@
+{
+    "domain": {
+        "key": "xxx.key",
+        "cert": "xxx.cert"
+    },
+    "database": {
+        "host": "localhost",
+        "db": "users",
+        "port": 3306,
+        "username": "root",
+        "password": "root",
+        "driver": "",
+        "charset": "utf-8",
+        "timezone": "",
+        "init_statments": []
+    },
+    "signiture": {
+        "algorithm": "",
+        "public_key": "",
+        "private_key": "",
+        "secret_key": ""
+    }
+}

@@ -1,5 +1,9 @@
-const port = process.env.PORT || 4000;
+const dotenv = require('dotenv');
+dotenv.config();
 
+const port = process.env.PORT || 4000;
+const porte = process.env.PORT;
+console.log(`Your port is ${porte}`);
 /*
 const fs = require('fs');
 
@@ -14,6 +18,7 @@ const service = require('./service');
 
 const server = https.createServer(service);
 
-server.listen(port, () => {
-    console.log('SERVICE START LISTENING PORT: ' + port);
+server.listen(port, (pr) => {
+    console.log(pr);
+    console.log("SERVICE START LISTENING PORT: {port}");
 });
