@@ -8,18 +8,13 @@ dotenv.config();
 const config = require('./service.config.json');
 const environment = process.env.NODE_ENV || 'development';
 const defaultConfig = config[environment];
-console.log(environment);
-console.log(defaultConfig);
+
 defaultConfig.service.port = process.env.PORT || defaultConfig.service.port;
 
 global.config = {
   enviroment: environment,
   vars: defaultConfig
 };
-
-
-
-
 
 
 /*
