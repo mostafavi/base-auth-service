@@ -1,6 +1,6 @@
 const express = require('express');
 const service = express();
-
+const logger = require('./interconnects/logger');
 
 const bodyParser = require("body-parser");
 

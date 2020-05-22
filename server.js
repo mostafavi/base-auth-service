@@ -1,9 +1,27 @@
+
+const logger = require('./interconnects/logger');
+
 const dotenv = require('dotenv');
 dotenv.config();
 
-const port = process.env.PORT || 4000;
-const porte = process.env.PORT;
-console.log(`Your port is ${porte}`);
+// module variables
+const config = require('./service.config.json');
+const environment = process.env.NODE_ENV || 'development';
+const defaultConfig = config[environment];
+console.log(environment);
+console.log(defaultConfig);
+defaultConfig.service.port = process.env.PORT || defaultConfig.service.port;
+
+global.config = {
+  enviroment: environment,
+  vars: defaultConfig
+};
+
+
+
+
+
+
 /*
 const fs = require('fs');
 
@@ -18,7 +36,7 @@ const service = require('./service');
 
 const server = https.createServer(service);
 
-server.listen(port, (pr) => {
-    console.log(pr);
-    console.log("SERVICE START LISTENING PORT: {port}");
+logger.log(`Running in ${global.config.enviroment} mode.`);
+server.listen(global.config.vars.service.port, (pr) => {
+  logger.log(`Service listening to port : ${global.config.vars.service.port}`);
 });

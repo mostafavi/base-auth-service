@@ -1,23 +1,25 @@
 {
-    "domain": {
-        "key": "xxx.key",
-        "cert": "xxx.cert"
-    },
-    "database": {
-        "host": "localhost",
-        "db": "users",
-        "port": 3306,
-        "username": "root",
-        "password": "root",
-        "driver": "",
-        "charset": "utf-8",
-        "timezone": "",
-        "init_statments": []
-    },
-    "signiture": {
-        "algorithm": "",
-        "public_key": "",
-        "private_key": "",
-        "secret_key": ""
+    "development": {
+        "service": {
+            "port": 4000
+        },
+        "domain": {
+            "key": "xxx.key",
+            "cert": "xxx.cert"
+        },
+        "database": {
+            "host": "localhost",
+            "user": "root",
+            "password": "reza1234",
+            "charset": "utf8_general_ci",
+            "timezone": "local",
+            "multipleStatements": true
+        },
+        "signiture": {
+            "algorithm": "",
+            "public_key": "",
+            "private_key": "",
+            "secret_key": ""
+        }
     }
 }
