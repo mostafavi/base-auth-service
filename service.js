@@ -6,6 +6,10 @@ const bodyParser = require("body-parser");
 
 const usersRoute = require('./api/routes/users');
 
+const protocol = require('./api/utilities/protocol');
+
+
+
 service.use((req, res, next) => {
     next();
 });
@@ -39,10 +43,16 @@ service.use((req, res, next) => {
 
 // Handling errors
 service.use((error, req, res, next) => {
-    res.status(error.status || 500);
-    res.json({
-        message: error.message
-    });
+    console.log(error);
+    if (error.ref != null) {
+        res.status(error.code || 500);
+        let message = protocol.encaps('ERR', error.code, { message: error.message, info: error.info, ref: error.ref })
+        res.json(message.messageFrame);
+    } else {
+        res.status(500);
+        let message = protocol.encaps('ERR', 500, { message: 'Internal error!', info: 'unknown', ref: 'SYSTEM' })
+        res.json(message.messageFrame);
+    }
 });
 
 module.exports = service;

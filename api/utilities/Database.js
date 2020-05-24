@@ -1,4 +1,6 @@
 const mysql = require('mysql');
+const logger = require('../../interconnects/logger');
+
 const dbconfig = {
     host: global.config.vars.database.host,
     user: global.config.vars.database.user,
@@ -13,22 +15,24 @@ class Database {
 
         this.connection.connect(err => {
             if (err) throw err;
-            console.log(`MySQL database connected to ${config.host}`);
+            logger.log(`MySQL database connected to ${config.host}`);
         });
     }
     query(sql, args, ...filterMethods) {
         return new Promise((resolve, reject) => {
-            console.log('DB UTILITY: ' + sql);
+            logger.log(sql);
             this.connection.query(sql, args, (err, rows) => {
-                if (err)
-                    return reject(err);
-                //console.log(filterMethods);
-                filterMethods.forEach(method => {
-                    if (typeof (method) === 'function') {
-                        rows = method(rows);
-                    }
-                });
-                resolve(rows);
+                if (err) {
+                    reject(err);
+                } else {
+                    //console.log(filterMethods);
+                    filterMethods.forEach(method => {
+                        if (typeof (method) === 'function') {
+                            rows = method(rows);
+                        }
+                    });
+                    resolve(rows);
+                }
             });
         });
     }
@@ -36,8 +40,8 @@ class Database {
         return row[0] ? row[0] : null;
     }
     getLastId(result) {
-        //console.log("test"+result);
-        return { lastId: result.insertId }
+        console.log("test" + result);
+        return result.insertId;
     }
     close() {
         return new Promise((resolve, reject) => {
