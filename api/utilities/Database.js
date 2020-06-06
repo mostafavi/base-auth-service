@@ -9,6 +9,7 @@ const dbconfig = {
     timezone: global.config.vars.database.timezone,
     multipleStatements: global.config.vars.database.multipleStatements
 };
+
 class Database {
     constructor(config) {
         this.connection = mysql.createConnection(config);
@@ -53,5 +54,4 @@ class Database {
         });
     }
 }
-
 module.exports = new Database(dbconfig);

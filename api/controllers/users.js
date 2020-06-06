@@ -38,7 +38,12 @@ exports.login = async (req, res, next) => {
 
             if (match) {
                 let token = jwt.sign(auth.sign_key, { userId: entity.user_id });
-                res.status(200).json(Protocol.encaps('DATA', 200, { status: 'OK', data: token, ref: 'SIGNIN' }).messageFrame);
+                res.status(200).json(Protocol.encaps('DATA', 200,
+                    {
+                        status: 'OK',
+                        data: token,
+                        ref: 'SIGNIN'
+                    }).messageFrame);
             } else {
                 throw {
                     code: 400,
@@ -96,16 +101,22 @@ exports.signup = async (req, res, next) => {
             let hash = await bcrypt.hash(req.body.password, salt);
             let addEntity = await repo.addUserEntity(req.config, { username: req.body.username, email: req.body.email })
             let addAuth = await repo.addAuthEntity(req.config, { userId: addEntity, salt: salt, password: hash, key: signiture })
-            res.status(200).json(Protocol.encaps('CTL', 200, { status: 'OK', info: { userId: addEntity }, ref: 'CHECK' }).messageFrame);
-
+            res.status(200).json(Protocol.encaps('CTL', 200,
+                {
+                    status: 'OK',
+                    info: { userId: addEntity },
+                    ref: 'CHECK'
+                }).messageFrame);
         } catch (e) {
             next(e);
         }
     }
-
-
 }
 exports.check = (req, res, next) => {
-    //console.log(res.verification);
-    res.status(200).json(Protocol.encaps('CTL', 200, { status: 'OK', info: res.verification, ref: 'CHECK' }).messageFrame);
+    res.status(200).json(Protocol.encaps('CTL', 200,
+        {
+            status: 'OK',
+            info: res.verification,
+            ref: 'CHECK'
+        }).messageFrame);
 }
