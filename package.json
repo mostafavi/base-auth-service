@@ -1,0 +1,28 @@
+{
+  "name": "base-auth-service",
+  "version": "1.0.0",
+  "description": "Users Control API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mostafavi/base-auth-service.git"
+  },
+  "author": "Mohammadreza Mostafavi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mostafavi/base-auth-service/issues"
+  },
+  "homepage": "https://github.com/mostafavi/base-auth-service#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "node-input-validator": "^4.2.0"
+  }
+}

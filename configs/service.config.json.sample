@@ -1,0 +1,25 @@
+{
+    "development": {
+        "service": {
+            "port": 4000
+        },
+        "domain": {
+            "key": "xxx.key",
+            "cert": "xxx.cert"
+        },
+        "database": {
+            "host": "",
+            "user": "",
+            "password": "",
+            "charset": "utf8_general_ci",
+            "timezone": "local",
+            "multipleStatements": true
+        },
+        "signiture": {
+            "algorithm": "",
+            "public_key": "",
+            "private_key": "",
+            "secret_key": ""
+        }
+    }
+}
