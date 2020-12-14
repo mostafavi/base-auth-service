@@ -1,5 +1,5 @@
 .DS_Store
 .env
-.vscode/
-node_modules/
+.vscode
+node_modules
 configs/service.config.json
