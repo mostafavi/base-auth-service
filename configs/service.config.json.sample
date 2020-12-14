@@ -8,9 +8,9 @@
             "cert": "xxx.cert"
         },
         "database": {
-            "host": "localhost",
-            "user": "root",
-            "password": "reza1234",
+            "host": "",
+            "user": "",
+            "password": "",
             "charset": "utf8_general_ci",
             "timezone": "local",
             "multipleStatements": true

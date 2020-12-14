@@ -1,15 +1,15 @@
-const db = require('../utilities/Database');
+const db = require('../services/Database');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const jwt = require('../utilities/jwt');
+const jwt = require('../services/jwt');
 const repo = require('../repositories/users');
 const app = require('../../interconnects/appconfig');
 const { Validator } = require('node-input-validator');
 const logger = require('../../interconnects/logger');
-const Protocol = require('../utilities/Protocol');
+const Protocol = require('../protocols/Protocol');
 
 exports.login = async (req, res, next) => {
-    let config = app.getAppConfig(req.header('appKey'));
+    //let config = app.getAppConfig(req.header('appKey'));
 
     const v = new Validator(req.body, {
         email: 'required|email',

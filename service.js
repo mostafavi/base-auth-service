@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 const usersRoute = require('./api/routes/users');
 
-const protocol = require('./api/utilities/protocol');
+const protocol = require('./api/protocols/Protocol');
 
 
 

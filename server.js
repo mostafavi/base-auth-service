@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // module variables
-const config = require('./service.config.json');
+const config = require('./configs/service.config.json');
 const environment = process.env.NODE_ENV || 'development';
 const defaultConfig = config[environment];
 

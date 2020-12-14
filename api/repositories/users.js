@@ -1,4 +1,4 @@
-const db = require('../utilities/Database');
+const db = require('../services/Database');
 
 module.exports = {
     getUserEntry: (app, email) => {
@@ -18,7 +18,7 @@ module.exports = {
         return db.query(sql, [username], db.getFirstRow);
     },
     addUserEntity: (app, entity) => {
-        let sql = 'INSERT INTO `' + app.config.database + '`.`users_entities` (`user_id`,`user_name`,`user_email`,`user_reg_date`) VALUES(NULL, ? , ? , CURRENT_TIMESTAMP)';
+        let sql = 'INSERT INTO `' + app.config.database + '`.`users_entities` (`user_id`,`user_name`,`user_email`) VALUES(NULL, ? , ? )';
         return db.query(sql, [entity.username, entity.email], db.getLastId);
     },
     addAuthEntity: (app, auth) => {
